@@ -7,20 +7,61 @@ const Nav = ({ count }) => {
     const { user, logOut } = useContext(AuthContext)
     const navigate = useNavigate();
     const order = () => { navigate('/orders') }
+
+
+
+    const menuItems = [
+        { name: "Resturant", path: "/" },
+        { name: "BAR", path: "/bar" },
+        { name: "Contact", path: "/contact" },
+        { name: "About", path: "/about" },
+    ].map((item) => (
+        <NavLink
+            key={item.name}
+            to={item.path}
+            className={({ isActive }) =>
+                isActive ? "border-b-4 border-b-red-500 p-2 font-extrabold" : ""
+            }
+        >
+            {item.name}
+        </NavLink>
+    ));
+
+
     return (
-        <div className="navbar bg-base-100 shadow-2xl">
+        <div className="navbar p-5 shadow-2xl">
             <div className="navbar-start">
-                <NavLink className="btn btn-ghost text-xl" to="/meal">Lazy's BAR</NavLink>
+                <div className="dropdown">
+                    <label tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
+                    <ul
+                        tabIndex={1}
+                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        {menuItems}
+                    </ul>
+                </div>
+                <NavLink className="btn btn-ghost text-xl" to="/">Lazy's BAR</NavLink>
             </div>
-            <div className="navbar-center">
-                <ul className='flex gap-5'>
-                    <li><NavLink className={({ isActive }) => isActive ? "border-b-4 border-b-red-500 p-2 font-extrabold" : ""} to='/meal'>Resturant</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? "border-b-4 border-b-red-500 p-2 font-extrabold" : ""} to="/bar">BAR</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? "border-b-4 border-b-red-500 p-2 font-extrabold" : ""} to='/contact'>Contact</NavLink></li>
-                    <li><NavLink className={({ isActive }) => isActive ? "border-b-4 border-b-red-500 p-2 font-extrabold" : ""} to='/about'>About</NavLink></li>
-                    {/* <li><NavLink to='/orders'>Order</NavLink></li> */}
-                </ul >
-            </div >
+            {/* Navbar Center */}
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal p-0 gap-4">{menuItems}</ul>
+                <ul></ul>
+            </div>
 
             <div className="navbar-end">
                 {/* <div className='me-5'>

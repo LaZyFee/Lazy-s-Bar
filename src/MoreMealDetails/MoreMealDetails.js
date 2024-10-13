@@ -6,7 +6,7 @@ const MoreMealDetails = ({ meal, countIncrease }) => {
     const { strMeal, strMealThumb } = meal;
     return (
         <div className='mt-10'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card lg:w-96 w-80 bg-base-100 shadow-xl mx-auto">
                 <figure><img src={strMealThumb} alt="meal" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{strMeal}</h2>

@@ -26,14 +26,14 @@ function App() {
       element: <Main count={count}></Main>,
       children: [
         {
-          path: 'meal',
+          path: '/',
           loader: async () => {
             return fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
           },
           element: <Meals countIncrease={countIncrease}></Meals>
         },
         {
-          path: '/meal/:name',
+          path: '/:name',
           loader: async ({ params }) => {
             return fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${params.name}`)
           },
@@ -42,7 +42,7 @@ function App() {
         {
           path: "/bar",
           loader: async () => {
-            return fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s')
+            return fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
           },
           element: <PrivateRoutes> <Home countIncrease={countIncrease}></Home></PrivateRoutes>
         },

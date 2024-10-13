@@ -5,17 +5,15 @@ import Modal from '../../Modal/Modal';
 
 const Drink = ({ drink, countIncrease }) => {
     const [modalData, setModalData] = useState(null)
-    const { strDrink, strDrinkThumb, strCategory, strGlass } = drink
+    const { strDrink, strDrinkThumb } = drink
 
 
     return (
         <div className='mt-10'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card lg:w-96 w-80 mx-auto bg-base-100 shadow-xl">
                 <figure><img src={strDrinkThumb} alt="glass" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{strDrink}</h2>
-                    <p className='font-bold'><span className='text-violet-500'>Category:</span>{strCategory}</p>
-                    <p className='font-bold'><span className='text-violet-500'>Glass:</span>{strGlass}</p>
                     <div className="card-actions mt-4 justify-center">
                         <label
                             onClick={() => setModalData(drink)}

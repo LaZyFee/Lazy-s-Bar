@@ -9,7 +9,7 @@ const Meal = ({ meal, countIncrease }) => {
     const { strCategory, strCategoryThumb } = meal;
     return (
         <div className='mt-10'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card lg:w-96 w-72 bg-base-100 shadow-xl mx-auto">
                 <figure><img src={strCategoryThumb} alt="meal" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{strCategory}</h2>
@@ -22,7 +22,7 @@ const Meal = ({ meal, countIncrease }) => {
                             Details
                         </label>
                         <div className="badge badge-outline hover:bg-red-500 p-5" onClick={countIncrease}> Buy</div>
-                        <Link to={`${strCategory}`}> <button className='btn btn-link'> check More..</button></Link>
+                        <Link to={`${strCategory}`}> <button className='btn btn-link'> more related..</button></Link>
                     </div>
                 </div>
             </div>

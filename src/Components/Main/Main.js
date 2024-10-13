@@ -6,9 +6,9 @@ import Footer from '../../Footer/Footer';
 const Main = ({ count }) => {
     return (
         <div >
-            <Nav count={count}></Nav>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <Nav count={count} />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
